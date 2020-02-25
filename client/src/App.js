@@ -19,7 +19,6 @@ class App extends React.Component {
    return (
      <div>
        <Switch>
-         {/*로그인 라우터*/}
          <Route
           path='/login'
           render={()=> (
