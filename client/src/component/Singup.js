@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 function reducer(state, action) {
     return {
       ...state,
-      [action.type]: action.value
+      [action.name]: action.value
     };
   }
 
@@ -68,6 +68,7 @@ const Signup = (props) => {
             error={value}
             label="email"
             type="email"
+            name="email"
             autoComplete="current-email"
             helperText={value ? '이미 존재하는 아이디입니다.': ''}
             variant="filled"
@@ -81,6 +82,7 @@ const Signup = (props) => {
             error={value}
             label="Password"
             type="password"
+            name='password'
             autoComplete="current-password"
             onChange={onChange}
             />
@@ -92,6 +94,7 @@ const Signup = (props) => {
             error={value}
             label="sKey"
             type="password"
+            name='sKey'
             onChange={onChange}
             />
             <TextField
@@ -100,6 +103,7 @@ const Signup = (props) => {
             error={value}
             label="aKey"
             type="password"
+            name='aKey'
             onChange={onChange}
             />
             </div>
