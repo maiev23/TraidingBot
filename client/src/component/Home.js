@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Chart from "react-google-charts";
 import axios from 'axios';
+import ButtonAppBar from './ButtonAppBar'
 import Coin from './Coin'
 import './Home.css'
+
 const Home = (props) => {
     //market 변경
     const [market, setMarket] = useState('KRW-BTC')
@@ -40,7 +42,13 @@ const Home = (props) => {
         )
     }
     return (
+
+        <div>
+            <ButtonAppBar isLogin={props.isLogin}
+            handleIsReverseLoginChange={props.handleIsReverseLoginChange}/> 
+
         <div className='Home'>
+
             <Chart
                 width={'900px'}
                 height={350}
