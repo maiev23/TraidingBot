@@ -4,6 +4,7 @@ import axios from 'axios';
 import ButtonAppBar from './ButtonAppBar'
 import Coin from './Coin'
 import './Home.css'
+import { blue } from '@material-ui/core/colors';
 
 const Home = (props) => {
     //market 변경
@@ -28,7 +29,7 @@ const Home = (props) => {
                     console.log(data)
                     setCandle(data);
                 })
-        }, 1000*60);
+        }, 100*60);
         return () => {
             clearInterval(timer);
         };
@@ -64,7 +65,8 @@ const Home = (props) => {
                 options={{
                     legend: 'none',
                     candlestick: {
-                        fallingColor: { strokeWidth: 0, fill: '#a52714' }, // red
+                        risingColor: { strokeWidth: 0, fill: '#a52714' }, // red
+                        fallingColor: { strokeWidth: 0, fill: 'blue' }
                     }
                 }}
                 rootProps={{ 'data-testid': '1' }}

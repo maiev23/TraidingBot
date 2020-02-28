@@ -46,8 +46,8 @@ const Signup = (props) => {
               // TODO : 서버에 회원가입을 요청 후 로그인 페이지로 이동 하세요.
               // onSubmit 이벤트로 바뀌는 state 값을 data 변수에 담는다.
              return axios
-             .post('http://localhost:4000/signup', {
-                 email: email,
+             .post('http://localhost:4000/signup/', {
+                 username: email,
                  password: password,
                  sKey: sKey,
                  aKey: aKey

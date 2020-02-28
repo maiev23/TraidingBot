@@ -41,8 +41,8 @@ const Login = (props) => {
               e.preventDefault();
               // TODO : 서버에 로그인 요청 후 처리하세요.
               return axios
-                .post('http://localhost:4000/signin', {
-                  email: email,
+                .post('http://localhost:4000/login', {
+                  username: email,
                   password: password
                 })
                 .then(() => {
