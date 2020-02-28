@@ -1,0 +1,56 @@
+.dataC{
+    display: flex;
+    flex-direction: row; 
+}
+.price{
+    font-size: 32px;
+}
+.price em{
+    margin-right: 70px;
+    font-size: 0.5em;
+}
+.red{
+    color: red;
+}
+.blue{
+    color: skyblue;
+}
+.red em{
+    color: black;
+}
+.blue em{
+    color: black;
+}
+.highP em{
+    margin-right: 70px;
+}
+.highP strong{
+    color:red;
+    margin-right: 30px;
+}
+.lowP em{
+    margin-right: 70px;
+}
+.lowP strong{
+    color: skyblue;
+    margin-right: 30px;
+}
+.trS em{
+    margin-right: 70px;
+}
+.trP em{
+    margin-right: 55px;
+}
+.all{
+    padding-left: 50px;
+}
+.yesterP em{
+ margin-right: 5px;
+}
+.yesterP strong{
+    font-size: 20px;
+    margin-right: 5px;
+}
+#black{
+ color:black
+}
