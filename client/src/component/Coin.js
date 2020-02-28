@@ -64,7 +64,7 @@ const Coin = (props) => {
             </Tabs>
             <div className='scroll'>
             {data.map((i, index) => (
-                <Coins data={i} key={index} event={props.event} />
+                <Coins data={i} key={index} event={props.event} event2={props.event2}/>
             ))}
             </div>
         </div>

@@ -1,0 +1,8 @@
+.coins{
+    font-size: x-large;
+    margin: 8px;
+    border-bottom: 1px solid skyblue;
+}
+.coins:hover{
+    background-color: skyblue;
+}
