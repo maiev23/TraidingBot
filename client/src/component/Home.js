@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Chart from "react-google-charts";
 import axios from 'axios';
+import ButtonAppBar from './ButtonAppBar'
 
 const Home = (props) => {
     const [candle, setCandle] = useState('loding');
@@ -31,6 +32,8 @@ const Home = (props) => {
     }
     return (
         <div>
+            <ButtonAppBar isLogin={props.isLogin}
+            handleIsReverseLoginChange={props.handleIsReverseLoginChange}/> 
             <Chart
                 width={'1000px'}
                 height={350}

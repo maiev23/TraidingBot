@@ -10,9 +10,13 @@ class App extends React.Component {
     isLogin: false,
     userinfo: {}
   };
+  
 
   handleIsLoginChange() {
     this.setState({ isLogin: true });
+  }
+  handleIsReverseLoginChange() {
+    this.setState({ isLogin: false });
   }
 
   render() {
@@ -37,7 +41,8 @@ class App extends React.Component {
           <Route
             exact
             path="/home"
-            render={() => <Home isLogin={isLogin} userinfo={userinfo} />}
+            render={() => <Home isLogin={isLogin} userinfo={userinfo} 
+            handleIsReverseLoginChange={this.handleIsReverseLoginChange.bind(this)} />}
           />
           <Route
             path="/"
