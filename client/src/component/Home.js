@@ -42,12 +42,9 @@ const Home = (props) => {
         )
     }
     return (
-
-        <div>
-            <ButtonAppBar isLogin={props.isLogin}
-            handleIsReverseLoginChange={props.handleIsReverseLoginChange}/> 
-
         <div className='Home'>
+            <ButtonAppBar isLogin={props.isLogin}
+            handleIsReverseLoginChange={props.handleIsReverseLoginChange}/>
 
             <Chart
                 width={'900px'}
