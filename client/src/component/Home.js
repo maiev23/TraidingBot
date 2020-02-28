@@ -42,12 +42,12 @@ const Home = (props) => {
         )
     }
     return (
-        <div className='Home'>
+        <div>
             <ButtonAppBar isLogin={props.isLogin}
             handleIsReverseLoginChange={props.handleIsReverseLoginChange}/>
-
+        <div className='Home'>
             <Chart
-                width={'900px'}
+                width={'80%'}
                 height={350}
                 chartType="CandlestickChart"
                 loader={<div>Loading Chart</div>}
@@ -70,6 +70,7 @@ const Home = (props) => {
             />
             <Coin event={changeMarket}/>
         </div>
+    </div>
     );
 };
 
