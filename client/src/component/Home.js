@@ -26,6 +26,7 @@ const Home = (props) => {
                 .then(data => {
                     console.log('실시간캔들')
                     console.log(data)
+                    setCandle(data);
                 })
         }, 1000*60);
         return () => {
@@ -47,7 +48,7 @@ const Home = (props) => {
             handleIsReverseLoginChange={props.handleIsReverseLoginChange}/>
         <div className='Home'>
             <Chart
-                width={'80%'}
+                width={'98%'}
                 height={350}
                 chartType="CandlestickChart"
                 loader={<div>Loading Chart</div>}
