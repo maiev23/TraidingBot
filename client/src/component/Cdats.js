@@ -43,21 +43,21 @@ const Cdats = (props) => {
         acc_trade_price_24h,
         acc_trade_volume_24h } = data.data[0]
 
-    //전일대비
-    const sum = (trade_price - prev_closing_price)
-    //% 함수
-    const math = function () {
-        let result = (sum / prev_closing_price) * 100
-        return result
-    }
+    // //전일대비
+    // const sum = (trade_price - prev_closing_price)
+    // //% 함수
+    // const math = function () {
+    //     let result = ((trade_price - prev_closing_price) / prev_closing_price) * 100
+    //     return result
+    // }
     return (
         <div className="all">
             <h2 className='coinName'>{props.han}</h2>
             <div className='dataC'>
                 {/*전일대비가 음수이면 파란색 양수이면 빨간색 0이면 검은색*/}
-                <div id={sum === 0 ? 'black':''} className={ sum < 0 ? 'blue' : 'red'}>
+                <div id={(trade_price - prev_closing_price) === 0 ? 'black':''} className={ (trade_price - prev_closing_price) < 0 ? 'blue' : 'red'}>
                     <div className='price'><strong>{props.market[0]==='K' ? number(trade_price.toFixed(0)) :trade_price.toFixed(8)}</strong><em>KRW</em></div>
-                    <div className='yesterP'><em>전일대비</em><strong>{math().toFixed(2) + '%'}</strong><strong>{(sum <= 0) ? '▼' : '▲'}</strong><strong>{props.market[0]==='K' ? number(sum.toFixed(2)) : sum.toFixed(8)}</strong></div>
+                    <div className='yesterP'><em>전일대비</em><strong>{(((trade_price - prev_closing_price) / prev_closing_price) * 100).toFixed(2) + '%'}</strong><strong>{((trade_price - prev_closing_price) <= 0) ? '▼' : '▲'}</strong><strong>{props.market[0]==='K' ? number((trade_price - prev_closing_price).toFixed(2)) : (trade_price - prev_closing_price).toFixed(8)}</strong></div>
                 </div>
                 <div>
                     <div className='highP'><em>고가</em><strong>{number(Math.floor(high_price))}</strong></div>
