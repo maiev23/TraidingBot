@@ -21,20 +21,20 @@ const Home = (props) => {
     }
     useEffect(() => {
         console.log('마켓='+market)
-        axios.get(`https://api.upbit.com/v1/candles/minutes/1?market=${market}&count=9`)
+        axios.get(`https://api.upbit.com/v1/candles/minutes/1?market=${market}&count=121`)
             .then(data => {
                 console.log('캔들')
                 console.log(data)
                 setCandle(data);
             })
         const timer = setInterval(() => {
-            axios.get(`https://api.upbit.com/v1/candles/minutes/1?market=${market}&count=9`)
+            axios.get(`https://api.upbit.com/v1/candles/minutes/1?market=${market}&count=121`)
                 .then(data => {
                     console.log('실시간캔들')
                     console.log(data)
                     setCandle(data);
                 })
-        }, 100*60);
+        }, 100*50);
         return () => {
             clearInterval(timer);
         };
@@ -60,18 +60,10 @@ const Home = (props) => {
                 height={350}
                 chartType="CandlestickChart"
                 loader={<div>Loading Chart</div>}
-                data={[
-                    ['time', '저가-고가,시가-종가', 'b', 'c', 'd'],
-                    [new Date(candle.data[8].candle_date_time_kst).toLocaleTimeString(), candle.data[8].high_price, candle.data[8].opening_price, candle.data[8].trade_price, candle.data[8].low_price],
-                    [new Date(candle.data[7].candle_date_time_kst).toLocaleTimeString(), candle.data[7].high_price, candle.data[7].opening_price, candle.data[7].trade_price, candle.data[7].low_price],
-                    [new Date(candle.data[6].candle_date_time_kst).toLocaleTimeString(), candle.data[6].high_price, candle.data[6].opening_price, candle.data[6].trade_price, candle.data[6].low_price],
-                    [new Date(candle.data[5].candle_date_time_kst).toLocaleTimeString(), candle.data[5].high_price, candle.data[5].opening_price, candle.data[5].trade_price, candle.data[5].low_price],
-                    [new Date(candle.data[4].candle_date_time_kst).toLocaleTimeString(), candle.data[4].high_price, candle.data[4].opening_price, candle.data[4].trade_price, candle.data[4].low_price],
-                    [new Date(candle.data[3].candle_date_time_kst).toLocaleTimeString(), candle.data[3].high_price, candle.data[3].opening_price, candle.data[3].trade_price, candle.data[3].low_price],
-                    [new Date(candle.data[2].candle_date_time_kst).toLocaleTimeString(), candle.data[2].high_price, candle.data[2].opening_price, candle.data[2].trade_price, candle.data[2].low_price],
-                    [new Date(candle.data[1].candle_date_time_kst).toLocaleTimeString(), candle.data[1].high_price, candle.data[1].opening_price, candle.data[1].trade_price, candle.data[1].low_price],
-                    [new Date(candle.data[0].candle_date_time_kst).toLocaleTimeString(), candle.data[0].high_price, candle.data[0].opening_price, candle.data[0].trade_price, candle.data[0].low_price]
-                ]}
+                data={candle.data.map((i) =>( 
+                    [new Date(i.candle_date_time_kst).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }), i.high_price, i.opening_price, i.trade_price, i.low_price]
+                )).concat([['time', '저가-고가,시가-종가', 'b', 'c', 'd']]).reverse()
+                }
                 options={{
                     legend: 'none',
                     candlestick: {
