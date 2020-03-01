@@ -84,18 +84,6 @@ const Login = (props) => {
             <Button variant="contained" color="primary"type='submit' >
              로그인
             </Button>
-            {/* <button
-              style={{
-                width: '200px',
-                height: '30px',
-                margin: '5px',
-                borderRadius: '5px',
-                backgroundColor: 'skyblue'
-              }}
-              type="submit"
-            >
-              로그인
-            </button> */}
           </form>
         </center>
       </div>
