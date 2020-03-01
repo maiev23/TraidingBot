@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Cdats.css'
 
+//숫자의 쉼표찍는 함수
 function number(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -42,8 +43,9 @@ const Cdats = (props) => {
         acc_trade_price_24h,
         acc_trade_volume_24h } = data.data[0]
 
-
+    //전일대비
     const sum = (trade_price - prev_closing_price)
+    //% 함수
     const math = function () {
         let result = (sum / prev_closing_price) * 100
         return result
@@ -52,6 +54,7 @@ const Cdats = (props) => {
         <div className="all">
             <h2 className='coinName'>{props.han}</h2>
             <div className='dataC'>
+                {/*전일대비가 음수이면 파란색 양수이면 빨간색 0이면 검은색*/}
                 <div id={sum === 0 ? 'black':''} className={ sum < 0 ? 'blue' : 'red'}>
                     <div className='price'><strong>{props.market[0]==='K' ? number(trade_price.toFixed(0)) :trade_price.toFixed(8)}</strong><em>KRW</em></div>
                     <div className='yesterP'><em>전일대비</em><strong>{math().toFixed(2) + '%'}</strong><strong>{(sum <= 0) ? '▼' : '▲'}</strong><strong>{props.market[0]==='K' ? number(sum.toFixed(2)) : sum.toFixed(8)}</strong></div>
