@@ -5,11 +5,13 @@ import ButtonAppBar from './ButtonAppBar'
 import Coin from './Coin'
 import './Home.css'
 import Cdats from './Cdats'
+import CandleUnit from './CandleUinit'
 
 const Home = (props) => {
     //market 변경
     const [market, setMarket] = useState('KRW-BTC')
     const [hanMarket, setHan] = useState('비트코인')
+    const [unit, setUnit] = useState('1')
     const [candle, setCandle] = useState('loding');
     const changeMarket = (e) => {
         // console.log(e)
@@ -19,16 +21,19 @@ const Home = (props) => {
         // console.log(e)
         setHan(e);
     }
+    const changUnit = (e) =>{
+        setUnit(e)
+    }
     useEffect(() => {
         console.log('마켓='+market)
-        axios.get(`https://api.upbit.com/v1/candles/minutes/1?market=${market}&count=121`)
+        axios.get(`https://api.upbit.com/v1/candles/minutes/${unit}?market=${market}&count=121`)
             .then(data => {
                 console.log('캔들')
                 console.log(data)
                 setCandle(data);
             })
         const timer = setInterval(() => {
-            axios.get(`https://api.upbit.com/v1/candles/minutes/1?market=${market}&count=121`)
+            axios.get(`https://api.upbit.com/v1/candles/minutes/${unit}?market=${market}&count=121`)
                 .then(data => {
                     console.log('실시간캔들')
                     console.log(data)
@@ -39,7 +44,7 @@ const Home = (props) => {
             clearInterval(timer);
         };
         //마켓이 변할때마다 실행
-    },[market]);
+    },[market,unit]);
     //첫랜더 로딩화면
     if (candle === 'loding') {
         return (
@@ -55,6 +60,9 @@ const Home = (props) => {
         <div className='Home'>
             <div className='Cview'>
             <Cdats market={market} han={hanMarket}/>
+            <div className='candleUnit'>
+            <CandleUnit event={changUnit}/>
+            </div>
             <Chart
                 width={'100%'}
                 height={350}
