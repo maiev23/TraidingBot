@@ -8,3 +8,7 @@
 .candleUnit{
   padding-left: 50px;  
 }
+.hogameme{
+  display: flex;
+  flex-direction: row;
+}
