@@ -6,6 +6,8 @@ import Coin from './Coin'
 import './Home.css'
 import Cdats from './Cdats'
 import CandleUnit from './CandleUinit'
+import Hoga from './Hoga'
+import Meme from './Meme'
 
 const Home = (props) => {
     //market 변경
@@ -81,6 +83,10 @@ const Home = (props) => {
                 }}
                 rootProps={{ 'data-testid': '1' }}
             />
+            <div className='hogameme'>
+                <Hoga/>
+                <Meme/>
+            </div>
             </div>
             {/* 이벤트 마켓 이벤트2 코인 한글이름 */}
             <Coin event={changeMarket} event2={changehan}/>
