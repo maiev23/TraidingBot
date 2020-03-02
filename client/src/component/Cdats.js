@@ -8,19 +8,16 @@ function number(x) {
 }
 
 const Cdats = (props) => {
-    console.log(props)
     const [data, setData] = useState('loding')
 
     useEffect(() => {
         axios.get(`https://api.upbit.com/v1/ticker?markets=${props.market}`)
             .then(json => {
-                console.log(json)
                 setData(json)
             })
         const timer = setInterval(() => {
             axios.get(`https://api.upbit.com/v1/ticker?markets=${props.market}`)
                 .then(json => {
-                    console.log(1)
                     setData(json)
                 })
         }, 100 * 60);

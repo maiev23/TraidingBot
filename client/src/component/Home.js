@@ -14,6 +14,7 @@ const Home = (props) => {
     const [market, setMarket] = useState('KRW-BTC')
     const [hanMarket, setHan] = useState('비트코인')
     const [unit, setUnit] = useState('1')
+    const [mesug, setMesug] = useState('100')
     const [candle, setCandle] = useState('loding');
     const changeMarket = (e) => {
         // console.log(e)
@@ -85,7 +86,7 @@ const Home = (props) => {
             />
             <div className='hogameme'>
                 <Hoga/>
-                <Meme/>
+                <Meme mesug={mesug} market={market}/>
             </div>
             </div>
             {/* 이벤트 마켓 이벤트2 코인 한글이름 */}

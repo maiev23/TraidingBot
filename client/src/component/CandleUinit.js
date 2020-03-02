@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SimpleSelect(props) {
-    console.log(props)
   const classes = useStyles();
   const [min, setMin] = React.useState(1);
 

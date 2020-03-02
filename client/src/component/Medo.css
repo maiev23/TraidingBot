@@ -1,0 +1,60 @@
+.jumunGN div strong{
+    font-size: 20px;
+}
+.jumunGN div{
+ margin-right: 15px;
+ width: 345px;
+ text-align: end
+}
+.mesuGG input{
+    text-align: end;
+    margin-left: 90px;
+    height: 30px;
+    width: 205px;
+}
+.jumunSR input{
+    text-align: end;
+    width : 205px;
+    margin-left: 94px;
+    height: 30px;
+}
+.jimunTT input{
+    text-align: end;
+    width : 205px;
+    margin-left: 90px;
+    height: 30px;
+}
+.mesuGG button{
+    font-size: 15px;
+    width: 37px;
+    height: 37px;
+}
+.minJMP{
+    margin-left: 226px;
+    font-size: 0.5em;
+}
+.minJMP em{
+    margin-right: 10px;
+}
+.jumunGN{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+}
+.mesuGG{
+    margin-bottom: 10px;
+}
+.jumunSR{
+    margin-bottom: 10px;
+}
+.jimunTT{
+    margin-bottom: 10px;
+}
+.mesuB{
+    margin-top: 10px;
+    text-align: center;
+}
+.memeAll{
+    width: 420px;
+}
