@@ -84,7 +84,7 @@ const Home = (props) => {
                 rootProps={{ 'data-testid': '1' }}
             />
             <div className='hogameme'>
-                <Hoga/>
+                <Hoga market={market}/>
                 <Meme/>
             </div>
             </div>
