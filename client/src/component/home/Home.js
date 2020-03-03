@@ -14,7 +14,7 @@ const Home = (props) => {
     const [market, setMarket] = useState('KRW-BTC')
     const [hanMarket, setHan] = useState('비트코인')
     const [unit, setUnit] = useState('1')
-    const [mesug, setMesug] = useState('100')
+    const [mesug, setMesug] = useState(0)
     const [candle, setCandle] = useState('loding');
     const changeMarket = (e) => {
         // console.log(e)
