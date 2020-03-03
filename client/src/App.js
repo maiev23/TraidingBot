@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import Login from '../src/component/Login';
-import Signup from '../src/component/Singup';
-import  Home  from '../src/component/Home';
+import Login from '../src/component/home/Login';
+import Signup from '../src/component/home/Singup';
+import  Home  from '../src/component/home/Home';
 
 class App extends React.Component {
   state = {

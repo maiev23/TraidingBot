@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Chart from "react-google-charts";
 import axios from 'axios';
 import ButtonAppBar from './ButtonAppBar'
-import Coin from './Coin'
+import Coin from '../coin/Coin'
 import './Home.css'
-import Cdats from './Cdats'
+import Cdats from '../coin/Cdats'
 import CandleUnit from './CandleUinit'
-import Hoga from './Hoga'
-import Meme from './Meme'
+import Hoga from '../Hoga'
+import Meme from '../meme/Meme'
 
 const Home = (props) => {
     //market 변경
@@ -42,7 +42,7 @@ const Home = (props) => {
                     console.log(data)
                     setCandle(data);
                 })
-        }, 100*50);
+        }, 1000*60);
         return () => {
             clearInterval(timer);
         };

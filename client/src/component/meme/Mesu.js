@@ -1,8 +1,8 @@
 import React, { useReducer, useState, useEffect } from 'react';
-import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './Medo.css'
+import './Mesu.css'
+import MesuModal from './MesuModal';
 
 
 
@@ -22,7 +22,7 @@ function removeComma(str) {
     let n = parseInt(str.replace(/,/g, ""));
     return n;
 }
-const Medo = (props) => {
+const Mesu = (props) => {
     const [jumunGN, setJumonGN] = useState(0)
     const [state, dispatch] = useReducer(reducer,
         {
@@ -33,18 +33,18 @@ const Medo = (props) => {
         dispatch(e.target);
     };
 
-     useEffect(() => {
+    useEffect(() => {
         let token = localStorage.getItem('token')
         axios.post('http://localhost:4000/meme', { market: props.market, 'token': token })
             .then(data => {
                 setJumonGN(data)
-            }).catch(err=>{
+            }).catch(err => {
                 setJumonGN(0)
             })
     }, [props.market]);
     const { mesu, jumuns } = state;
-    if(jumunGN === 0){
-        return(
+    if (jumunGN === 0) {
+        return (
             <div>
                 <Link to="/login">다시 로그인 해주십시오</Link>
             </div>
@@ -52,26 +52,19 @@ const Medo = (props) => {
     }
     return (
         <div className='memeAll'>
-            <form onSubmit={e => {
-                e.preventDefault();
-                let token = localStorage.getItem('token')
-                axios.post('http://localhost:4000/meme', { market: props.market, 'token': token })
-                    .then(data => {})
-            }}>
+            <form>
                 <div className='jumunGN'>주문가능<div><strong>{number(Number(jumunGN.data.bid_account.balance).toFixed(0))}</strong><em>KRW</em></div></div>
                 {/* 넘버의 들어가는 인자에 쉼표를 제거 */}
                 <div className='mesuGG'>매수가격<em>(KRW)</em><input value={number(removeComma(mesu))} onChange={onChange} name='mesu' type='text'></input></div>
                 <div className='jumunSR'>주문수량<em>(XRP)</em><input value={number(removeComma(jumuns))} name='jumuns' onChange={onChange} type='text'></input></div>
                 <div className='jimunTT'>주문총액<em>(KWR)</em><input value={number(mesu * removeComma(jumuns))} readOnly="readonly" type='text'></input></div>
-        <div className='minJMP'><em>최소주문금액 :  {jumunGN.data.market.bid.min_total} KRW</em><em>수수료 :  {jumunGN.data.bid_fee*100}%</em></div>
+                <div className='minJMP'><em>최소주문금액 :  {jumunGN.data.market.bid.min_total} KRW</em><em>수수료 :  {jumunGN.data.bid_fee * 100}%</em></div>
                 <div className='mesuB'>
-                    <Button variant="contained" color="primary" type='submit' size='large' >
-                        매수
-                    </Button>
+                    <MesuModal mesu={mesu} jumuns={jumuns} market={props.market}/>
                 </div>
             </form>
         </div>
     );
 };
 
-export default Medo;
+export default Mesu;
