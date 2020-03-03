@@ -10,11 +10,10 @@ import Paper from '@material-ui/core/Paper';
 import Hogas from './Hogas';
 import HogaM from './HogaM';
 
-
 const CustomTableCell = withStyles(theme => ({
     head: {
-      backgroundColor: theme.palette.info.main,
-      color: theme.palette.common.white,
+      backgroundColor: theme.palette.common.white,
+      color: theme.palette.common.black,
     },
   }))(TableCell);
   
@@ -22,7 +21,9 @@ const CustomTableCell = withStyles(theme => ({
     root: {
       width: 500,
       height: 400,
-      marginTop: theme.spacing.unit * 3,
+      marginTop: theme.spacing(3),
+      marginLeft: theme.spacing(8),
+      marginRight: theme.spacing(8),
       overflowY: 'scroll',
     },
     body: {
@@ -33,7 +34,6 @@ const CustomTableCell = withStyles(theme => ({
   });
 
 const Hoga = (props) => {
-    console.log('Hoga',props)
     const [data, setData] = useState('loding')
     const {classes} = props
 
@@ -56,13 +56,11 @@ const Hoga = (props) => {
 
     }, [props.market])
 
-
     if (data === 'loding') {
         return (
             <div>loding</div>
         )
     }
-    
 
     return (
         <div>
@@ -77,10 +75,10 @@ const Hoga = (props) => {
             </TableHead>
         <TableBody >
         {data.data[0].orderbook_units.reverse().map(c => {
-        return <Hogas key= {c.ask_price} ask_price={c.ask_price} ask_size={c.ask_size} />
+        return <Hogas checkCoin={props.market[0]} key= {c.ask_price} ask_price={c.ask_price} ask_size={c.ask_size} />
         })}
         {data.data[0].orderbook_units.reverse().map(c => {
-        return <HogaM key= {c.bid_price} bid_price={c.bid_price} bid_size={c.bid_size} />
+        return <HogaM checkCoin={props.market[0]} key= {c.bid_price} bid_price={c.bid_price} bid_size={c.bid_size} />
         })}
         </TableBody>
         </Table>
