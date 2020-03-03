@@ -1,7 +1,7 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import axios from 'axios';
-import './Mesu.css'
-import MesuModal from './MesuModal';
+import './Medo.css'
+import MedoModal from './MedoModal';
 import { withRouter } from 'react-router-dom';
 
 
@@ -88,15 +88,15 @@ const Mesu = (props) => {
             <form>
                 <div className='jumunGN'>주문가능<div>
                     <strong>{ 
-                     (props.market[0]==='K') ? number(Number(jumunGN.data.bid_account.balance).toFixed(0)) : number(Number(jumunGN.data.bid_account.balance).toFixed(0))
-                    }</strong><em>{props.market.substring(0,3)}</em></div></div>
+                     (props.market[0]==='K') ? number(Number(jumunGN.data.ask_account.balance).toFixed(0)) : number(Number(jumunGN.data.ask_account.balance).toFixed(0))
+                    }</strong><em>{props.market.substring(4,8)}</em></div></div>
                 {/* 넘버의 들어가는 인자에 쉼표를 제거 */}
-                <div className='mesuGG'>매수가격<em>({props.market.substring(0,3)})</em><input value={mesu} onChange={onChange} name='mesu' type='text'></input></div>
+                <div className='mesuGG'>매도가격<em>({props.market.substring(0,3)})</em><input value={mesu} onChange={onChange} name='mesu' type='text'></input></div>
                 <div className='jumunSR'>주문수량<em>({props.market.substring(4,8)})</em><input value={jumuns} name='jumuns' onChange={onChange} type='text' ></input></div>
                 <div className='jimunTT'>주문총액<em>({props.market.substring(0,3)})</em><input value={props.market[0]==='K' ? number((removeComma(mesu)*removeComma(jumuns)).toFixed(0)) : comma((removeComma(mesu)*removeComma(jumuns)).toFixed(8))} readOnly="readonly" type='text'></input></div>
                 <div className='minJMP'><em>최소주문금액 :  {jumunGN.data.market.bid.min_total} {props.market[0]==='K' ? 'KRW' : 'BTC'}</em><em>수수료 :  {jumunGN.data.bid_fee * 100}%</em></div>
                 <div className='mesuB'>
-                    <MesuModal mesu={mesu} jumuns={jumuns} market={props.market}/>
+                    <MedoModal mesu={mesu} jumuns={jumuns} market={props.market}/>
                 </div>
             </form>
         </div>
