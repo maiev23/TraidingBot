@@ -1,7 +1,10 @@
 .Coin{
-    border: 5px solid skyblue;
+    border: 1px solid rgba(3, 3, 3, 0.103);
     margin: auto;
+    margin-top:68px;
     padding: 5px;
+    border-radius:5px;
+    background-color: white;
 }
 .scroll{
     overflow: auto;

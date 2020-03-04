@@ -10,8 +10,13 @@ function number(x) {
 const Hogas = (props) => {
 return (
 <TableRow>
-<TableCell>{props.ask_size.toFixed(3)}</TableCell>
-<TableCell style={{backgroundColor: blue[50]}}>{props.checkCoin ==='K' ? number(props.ask_price):props.ask_price}</TableCell>
+<TableCell  align="center"
+            style={{fontSize: '1.0rem'}}>
+            {props.ask_size.toFixed(3)}</TableCell>
+
+<TableCell  align="center"  
+            style={{backgroundColor: blue[50], fontSize: '1.0rem'}}>
+            {props.checkCoin ==='K' ? number(props.ask_price):props.ask_price}</TableCell>
 <TableCell></TableCell>
 </TableRow>
 )

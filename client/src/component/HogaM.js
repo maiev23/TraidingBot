@@ -12,8 +12,13 @@ const HogaM = (props) => {
 return (
 <TableRow>
 <TableCell></TableCell>
-<TableCell style={{backgroundColor: red[50]}}>{props.checkCoin ==='K' ? number(props.bid_price): props.bid_price}</TableCell>
-<TableCell>{props.bid_size.toFixed(3)}</TableCell>
+<TableCell  align="center"
+            style={{backgroundColor: red[50], fontSize: '1.0rem'}}>
+            {props.checkCoin ==='K' ? number(props.bid_price): props.bid_price}</TableCell>
+
+<TableCell  align="center"
+            style={{fontSize: '1.0rem'}} >
+            {props.bid_size.toFixed(3)}</TableCell>
 </TableRow>
 )
 }
