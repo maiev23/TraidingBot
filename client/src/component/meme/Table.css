@@ -1,0 +1,7 @@
+.table{
+    border-bottom: 1px solid black;
+}
+.scroll2{
+    overflow: auto;
+    height: 300px;
+}
