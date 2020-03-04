@@ -78,7 +78,7 @@ function rand() {
     };
     const handleMesu = () => {
       let token = localStorage.getItem('token')
-      axios.post('http://localhost:4000/meme/medo',
+      axios.post('http://localhost:4000/meme/sell',
           {
               market: props.market,
               mesu: removeComma(props.mesu),
@@ -90,6 +90,10 @@ function rand() {
               alert(data.data.message)
               setOpen(false)
             } else{
+              let output = localStorage.getItem("uuid");
+              let arr = JSON.parse(output)
+              arr.push(data.data.data.uuid)
+              localStorage.setItem("uuid", JSON.stringify(arr));
               alert('매수 신청이 완료되었습니다. 자세한 내용 거래내역에서 확인하세요')
               setOpen(false)
             }

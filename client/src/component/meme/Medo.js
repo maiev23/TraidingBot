@@ -54,7 +54,7 @@ const Mesu = (props) => {
 
     useEffect(() => {
         let token = localStorage.getItem('token')
-        axios.post('http://localhost:4000/meme/meme', { market: props.market, 'token': token })
+        axios.post('http://localhost:4000/meme/info', { market: props.market, 'token': token })
             .then(data => {
                 console.log(data)
                 setJumonGN(data)
@@ -63,7 +63,7 @@ const Mesu = (props) => {
                 props.history.push('/login');
             })
             const timer = setInterval(() => {
-                axios.post('http://localhost:4000/meme/meme', { market: props.market, 'token': token })
+                axios.post('http://localhost:4000/meme/info', { market: props.market, 'token': token })
                 .then(data => {
                     setJumonGN(data)
                 }).catch(err => {
