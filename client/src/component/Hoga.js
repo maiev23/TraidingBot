@@ -9,6 +9,7 @@ import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 import Hogas from './Hogas';
 import HogaM from './HogaM';
+import { light } from '@material-ui/core/styles/createPalette';
 
 const CustomTableCell = withStyles(theme => ({
     head: {
@@ -19,8 +20,8 @@ const CustomTableCell = withStyles(theme => ({
   
   const styles = theme => ({
     root: {
-      width: 500,
-      height: 400,
+      width: 700,
+      height: 380,
       marginTop: theme.spacing(3),
       marginLeft: theme.spacing(8),
       marginRight: theme.spacing(8),
@@ -29,7 +30,8 @@ const CustomTableCell = withStyles(theme => ({
     body: {
         fontSize: '1.5rem',
         width: 100,
-        position: "top"
+        position: "top",
+        align: light
     },
   });
 
@@ -68,9 +70,9 @@ const Hoga = (props) => {
         <Table>
             <TableHead>
                 <TableRow>
-                    <CustomTableCell className={classes.body}>매수량</CustomTableCell>
-                    <CustomTableCell className={classes.body}>가격</CustomTableCell>
-                    <CustomTableCell className={classes.body}>매도량</CustomTableCell>
+                    <CustomTableCell align="center" className={classes.body}>매수량</CustomTableCell>
+                    <CustomTableCell align="center" className={classes.body}>가격</CustomTableCell>
+                    <CustomTableCell align="center" className={classes.body}>매도량</CustomTableCell>
                 </TableRow>
             </TableHead>
         <TableBody >

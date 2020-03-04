@@ -60,14 +60,15 @@ const Home = (props) => {
         <div>
             <ButtonAppBar isLogin={props.isLogin}
             handleIsReverseLoginChange={props.handleIsReverseLoginChange}/>
-        <div className='Home'>
+        <div className='Home' >
             <div className='Cview'>
             <Cdats market={market} han={hanMarket}/>
             <div className='candleUnit'>
             <CandleUnit event={changUnit}/>
             </div>
+            <div className='chart'>
             <Chart
-                width={'100%'}
+                width={'99%'}
                 height={350}
                 chartType="CandlestickChart"
                 loader={<div>Loading Chart</div>}
@@ -84,9 +85,10 @@ const Home = (props) => {
                 }}
                 rootProps={{ 'data-testid': '1' }}
             />
+            </div>
             <div className='hogameme'>
                 <Hoga market={market}/>
-                <Meme mesug={mesug} market={market}/>
+                <Meme mesug={mesug} price={price} market={market}/>
             </div>
             </div>
             {/* 이벤트 마켓 이벤트2 코인 한글이름 */}

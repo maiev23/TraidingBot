@@ -1,6 +1,12 @@
 .dataC{
     display: flex;
     flex-direction: row; 
+    border: 1px solid rgba(3, 3, 3, 0.103);
+    padding: 25px;
+    background-color: white;
+    width:94%;
+    margin-left: 12px;
+    border-radius: 5px;
 }
 .price{
     font-size: 32px;
@@ -54,4 +60,7 @@
 }
 #black{
  color:black
+}
+.coinName{
+    margin-left: 19px;
 }
