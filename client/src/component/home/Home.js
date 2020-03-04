@@ -28,18 +28,14 @@ const Home = (props) => {
         setUnit(e)
     }
     useEffect(() => {
-        console.log('마켓='+market)
+
         axios.get(`https://api.upbit.com/v1/candles/minutes/${unit}?market=${market}&count=121`)
             .then(data => {
-                console.log('캔들')
-                console.log(data)
                 setCandle(data);
             })
         const timer = setInterval(() => {
             axios.get(`https://api.upbit.com/v1/candles/minutes/${unit}?market=${market}&count=121`)
                 .then(data => {
-                    console.log('실시간캔들')
-                    console.log(data)
                     setCandle(data);
                 })
         }, 1000*60);
