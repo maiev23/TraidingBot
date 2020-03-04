@@ -1,6 +1,7 @@
 .Home{
     display: flex;
     flex-direction: row;
+    background-color: rgba(128, 128, 128, 0.151);
 }
 .Cview{
     width: 100%;
@@ -11,4 +12,7 @@
 .hogameme{
   display: flex;
   flex-direction: row;
+}
+.chart{
+  padding-left: 65px;
 }

@@ -6,7 +6,12 @@ import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import Mesu from './Mesu'
 import Medo from './Medo'
+
 import TradingList from './TradingList'
+import './Meme.css'
+import { ThemeProvider } from '@material-ui/core';
+
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -45,11 +50,11 @@ const Meme = (props) => {
         setValue(newValue);
     }
     return (
-        <div>
+        <div className="Meme">
             <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                <Tab name={'매수'} label="매수" {...a11yProps(0)} />
-                <Tab name={'매도'} label="매도" {...a11yProps(1)} />
-                <Tab name={'거래내역'} label="거래내역" {...a11yProps(2)} />
+                <Tab align='center' style={{fontSize:'1.5rem'}} name={'매수'} label="매수" {...a11yProps(0)} />
+                <Tab align='center' style={{fontSize:'1.5rem'}} name={'매도'} label="매도" {...a11yProps(1)} />
+                <Tab align='center' style={{fontSize:'1.5rem'}} name={'거래내역'} label="거래내역" {...a11yProps(2)} />
             </Tabs>
             <TabPanel value={value} index={0}>
                 <Mesu mesug={props.mesug} market={props.market}/>
