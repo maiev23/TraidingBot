@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import Mesu from './Mesu'
 import Medo from './Medo'
-
+import TradingList from './TradingList'
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -58,7 +58,7 @@ const Meme = (props) => {
                 <Medo mesug={props.mesug} market={props.market}/>
             </TabPanel>
             <TabPanel value={value} index={2}>
-                Item Three
+                <TradingList />
             </TabPanel>
         </div>
     );
