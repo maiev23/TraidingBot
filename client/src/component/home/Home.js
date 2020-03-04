@@ -88,7 +88,7 @@ const Home = (props) => {
             </div>
             <div className='hogameme'>
                 <Hoga market={market}/>
-                <Meme mesug={mesug} price={price} market={market}/>
+                <Meme mesug={mesug} market={market}/>
             </div>
             </div>
             {/* 이벤트 마켓 이벤트2 코인 한글이름 */}
