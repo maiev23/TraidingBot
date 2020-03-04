@@ -53,24 +53,34 @@ const Mesu = (props) => {
     };
 
     useEffect(() => {
-        let token = localStorage.getItem('token')
-        axios.post('http://localhost:4000/meme/info', { market: props.market, 'token': token })
+        let atoken = localStorage.getItem('atoken')
+        let stoken = localStorage.getItem('stoken')
+        axios.post('http://localhost:4000/meme/info', { market: props.market, 'accessToken': atoken })
             .then(data => {
-                console.log(data)
                 setJumonGN(data)
-            }).catch(err => {
+            }).catch(() => {
+                axios.post('http://localhost:4000/meme/info', { market: props.market, 'refreshToken': stoken })
+                .then(data => {
+                    localStorage.setItem('atoken', data.data)
+            }).catch(()=>{
                 alert('토큰이 만료되었습니다.')
-                props.history.push('/login');
-            })
+                props.history.push('/login')
+            })})
             const timer = setInterval(() => {
-                axios.post('http://localhost:4000/meme/info', { market: props.market, 'token': token })
+                let atoken = localStorage.getItem('atoken')
+                let stoken = localStorage.getItem('stoken')
+                axios.post('http://localhost:4000/meme/info', { market: props.market, 'accessToken': atoken })
                 .then(data => {
                     setJumonGN(data)
-                }).catch(err => {
+                }).catch(() => {
+                    axios.post('http://localhost:4000/meme/info', { market: props.market, 'refreshToken': stoken })
+                    .then(data => {
+                        localStorage.setItem('atoken', data.data)
+                }).catch(()=>{
                     alert('토큰이 만료되었습니다.')
-                    props.history.push('/login');
-                })
-            }, 100*60);
+                    props.history.push('/login')
+                })})
+            }, 1000);
             return () => {
                 clearInterval(timer);
             };

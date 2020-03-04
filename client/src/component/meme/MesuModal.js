@@ -37,33 +37,33 @@ function comma(obj) {
   var bExists = obj.indexOf(".", 0);//0번째부터 .을 찾는다.
   var strArr = obj.split('.');
   while (regx.test(strArr[0])) {//문자열에 정규식 특수문자가 포함되어 있는지 체크
-      //정수 부분에만 콤마 달기 
-      strArr[0] = strArr[0].replace(regx, "$1,$2");//콤마추가하기
+    //정수 부분에만 콤마 달기 
+    strArr[0] = strArr[0].replace(regx, "$1,$2");//콤마추가하기
   }
   if (bExists > -1) {
-      //. 소수점 문자열이 발견되지 않을 경우 -1 반환
-      obj = strArr[0] + "." + strArr[1];
+    //. 소수점 문자열이 발견되지 않을 경우 -1 반환
+    obj = strArr[0] + "." + strArr[1];
   } else { //정수만 있을경우 //소수점 문자열 존재하면 양수 반환 
-      obj = strArr[0];
+    obj = strArr[0];
   }
   return obj;//문자열 반환
 }
 function removeComma(str) {
-  if (str == 0 || str< 1) {
-      return str
+  if (str == 0 || str < 1) {
+    return str
   }
   let n = parseInt(str.replace(/,/g, ""));
   return n;
 }
 function number(x) {
-  if(x<1){
-      return x
+  if (x < 1) {
+    return x
   }
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-  const MesuModal=(props) => {
-    console.log(props)
+const MesuModal = (props) => {
+  console.log(props)
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -77,31 +77,30 @@ function number(x) {
     setOpen(false);
   };
   const handleMesu = () => {
-    let token = localStorage.getItem('token')
+    let atoken = localStorage.getItem('atoken')
     axios.post('http://localhost:4000/meme/buy',
-        {
-            market: props.market,
-            mesu: removeComma(props.mesu),
-            jumuns: removeComma(props.jumuns),
-            'token': token
-        })
-        .then(data => {
-          if(data.data.data === null){
-            alert(data.data.message)
-            setOpen(false)
-          } else{
-            console.log(data.data.data.uuid)
-            let output = localStorage.getItem("uuid");
-            let arr = JSON.parse(output)
-            arr.push(data.data.data.uuid)
-            localStorage.setItem("uuid", JSON.stringify(arr));
-            alert('매수 신청이 완료되었습니다. 자세한 내용 거래내역에서 확인하세요')
-            setOpen(false)
-          }
-        })
-        .catch(()=>{
-          alert(' 인증시간이 만료되었습니다!!\n 다시로그인 해주세요')
-        })
+      {
+        market: props.market,
+        mesu: removeComma(props.mesu),
+        jumuns: removeComma(props.jumuns),
+        'accessToken': atoken
+      })
+      .then(data => {
+        if (data.data.data === null) {
+          alert(data.data.message)
+          setOpen(false)
+        } else {
+          let output = localStorage.getItem("uuid");
+          let arr = JSON.parse(output)
+          arr.push(data.data.data.uuid)
+          localStorage.setItem("uuid", JSON.stringify(arr));
+          alert('매수 신청이 완료되었습니다. 자세한 내용 거래내역에서 확인하세요')
+          setOpen(false)
+        }
+      })
+      .catch(() => {
+        alert(' 인증시간이 만료되었습니다!!\n 다시로그인 해주세요')
+      })
   };
 
   return (
@@ -118,17 +117,17 @@ function number(x) {
         <div style={modalStyle} className={classes.paper}>
           <h2 id="simple-modal-title" >매수</h2>
           <div id="simple-modal-description">
-              <div className='modalEm'>매수가<em>({props.market.substring(0,3)})</em><strong>{number(removeComma(props.mesu))}</strong></div>
-              <div className='modalEm'>수량<em>({props.market.substring(4,8)})</em><strong>{props.jumuns}</strong></div>
-              <div className='modalEm'>총<em>({props.market.substring(0,3)})</em><strong>{props.market[0]==='K' ? number((removeComma(props.mesu)*removeComma(props.jumuns)).toFixed(0)) : comma((removeComma(props.mesu)*removeComma(props.jumuns)).toFixed(8))}</strong></div>
+            <div className='modalEm'>매수가<em>({props.market.substring(0, 3)})</em><strong>{number(removeComma(props.mesu))}</strong></div>
+            <div className='modalEm'>수량<em>({props.market.substring(4, 8)})</em><strong>{props.jumuns}</strong></div>
+            <div className='modalEm'>총<em>({props.market.substring(0, 3)})</em><strong>{props.market[0] === 'K' ? number((removeComma(props.mesu) * removeComma(props.jumuns)).toFixed(0)) : comma((removeComma(props.mesu) * removeComma(props.jumuns)).toFixed(8))}</strong></div>
           </div>
           <span className='modalB'>
-          <Button variant="contained" color="primary"  size='medium'onClick={handleClose} onClick={handleMesu} >
-                        확인
+            <Button variant="contained" color="primary" size='medium' onClick={handleClose} onClick={handleMesu} >
+              확인
           </Button>
           </span>
-          <Button variant="contained" color="primary"  size='medium'onClick={handleClose} >
-                        취소
+          <Button variant="contained" color="primary" size='medium' onClick={handleClose} >
+            취소
           </Button>
         </div>
       </Modal>

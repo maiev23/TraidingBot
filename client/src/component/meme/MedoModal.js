@@ -77,13 +77,13 @@ function rand() {
       setOpen(false);
     };
     const handleMesu = () => {
-      let token = localStorage.getItem('token')
+      let atoken = localStorage.getItem('atoken')
       axios.post('http://localhost:4000/meme/sell',
           {
               market: props.market,
               mesu: removeComma(props.mesu),
               jumuns: removeComma(props.jumuns),
-              'token': token
+              'accessToken': atoken
           })
           .then(data => {
             if(data.data.data === null){

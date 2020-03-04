@@ -3,15 +3,13 @@ import Entry from './Entry'
 import axios from 'axios'
 const ListEntry = (props) => {
     const [data, setData] = useState('')
-    console.log(data)
     useEffect(()=>{
-        let token = localStorage.getItem('token')
+        let atoken = localStorage.getItem('atoken')
         const config = {
-            headers: { "token": `${token}` },
+            headers: { "accessToken": `${atoken}` },
           }
-        axios.post('http://localhost:4000/meme/list',{'status': props.mode},config)
+        axios.post('http://localhost:4000/meme/list',{'status': props.mode}, config)
             .then(data => {
-                console.log(data)
                 setData(data)
             }).catch( (err) => {
                 console.log(err)
