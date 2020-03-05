@@ -78,7 +78,7 @@ const MesuModal = (props) => {
   };
   const handleMesu = () => {
     let atoken = localStorage.getItem('atoken')
-    axios.post('http://localhost:4000/meme/buy',
+    axios.post('http://13.209.19.145:4000/meme/buy',
       {
         market: props.market,
         mesu: removeComma(props.mesu),

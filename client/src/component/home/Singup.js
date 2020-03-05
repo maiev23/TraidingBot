@@ -23,6 +23,7 @@ function reducer(state, action) {
 
 const Signup = (props) => {
     const [value, setValue] = useState(false);
+    
     const [state, dispatch] = useReducer(reducer, {
         email: '',
         password: '',
@@ -45,7 +46,7 @@ const Signup = (props) => {
               e.preventDefault();
               // onSubmit 이벤트로 바뀌는 state 값을 data 변수에 담는다.
              return axios
-             .post('http://localhost:4000/signup/', {
+             .post('http://13.209.19.145:4000/signup/', {
                  username: email,
                  password: password,
                  sKey: sKey,
@@ -56,8 +57,12 @@ const Signup = (props) => {
                  alert('회원가입이 되었습니다.')
              })
              .catch(err => {
-                 console.log(err)  
+                 console.log(err.message)
+                if(err.code=410){
+                 alert('올바른 키를 입력해주십시오')
+                }else{
                  setValue (true)
+                }
              });
             }}
           >
@@ -69,7 +74,7 @@ const Signup = (props) => {
             type="email"
             name="email"
             autoComplete="current-email"
-            helperText={value ? '이미 존재하는 아이디입니다.': ''}
+            helperText={value ? '이미 존재하는 아이디입니다.': `${str}`}
             variant="filled"
             onChange={onChange}
             />

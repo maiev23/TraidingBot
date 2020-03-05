@@ -26,9 +26,9 @@ const Entry = (props) => {
         const config = {
             headers: { "accessToken": `${atoken}` },
         }
-        axios.post('http://localhost:4000/meme/cancle', { 'uuid': props.data.uuid }, config)
+        axios.post('http://http://13.209.19.145:4000/meme/cancle', { 'uuid': props.data.uuid }, config)
             .then(() => {
-                axios.post('http://localhost:4000/meme/list', { 'status': props.mode }, config)
+                axios.post('http://http://13.209.19.145:4000/meme/list', { 'status': props.mode }, config)
                     .then(data => {
                         props.delete(data)
                     }).catch((err) => {

@@ -9,7 +9,7 @@ const ListEntry2 = (props) => {
         const config = {
             headers: { "accessToken": `${atoken}` },
           }
-        axios.post('http://localhost:4000/meme/list',{'status': props.mode},config)
+        axios.post('http://13.209.19.145:4000/meme/list',{'status': props.mode},config)
             .then(data => {
                 setData(data)
             }).catch( (err) => {

@@ -55,11 +55,11 @@ const Mesu = (props) => {
     useEffect(() => {
         let atoken = localStorage.getItem('atoken')
         let stoken = localStorage.getItem('stoken')
-        axios.post('http://localhost:4000/meme/info', { market: props.market, 'accessToken': atoken })
+        axios.post('http://13.209.19.145:4000/meme/info', { market: props.market, 'accessToken': atoken })
             .then(data => {
                 setJumonGN(data)
             }).catch(() => {
-                axios.post('http://localhost:4000/meme/info', { market: props.market, 'refreshToken': stoken })
+                axios.post('http://13.209.19.145:4000/meme/info', { market: props.market, 'refreshToken': stoken })
                 .then(data => {
                     localStorage.setItem('atoken', data.data)
             }).catch(()=>{
@@ -69,11 +69,11 @@ const Mesu = (props) => {
             const timer = setInterval(() => {
                 let atoken = localStorage.getItem('atoken')
                 let stoken = localStorage.getItem('stoken')
-                axios.post('http://localhost:4000/meme/info', { market: props.market, 'accessToken': atoken })
+                axios.post('http://13.209.19.145:4000/meme/info', { market: props.market, 'accessToken': atoken })
                 .then(data => {
                     setJumonGN(data)
                 }).catch(() => {
-                    axios.post('http://localhost:4000/meme/info', { market: props.market, 'refreshToken': stoken })
+                    axios.post('http://13.209.19.145:4000/meme/info', { market: props.market, 'refreshToken': stoken })
                     .then(data => {
                         localStorage.setItem('atoken', data.data)
                 }).catch(()=>{
