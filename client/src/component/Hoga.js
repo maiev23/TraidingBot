@@ -70,9 +70,9 @@ const Hoga = (props) => {
         <Table>
             <TableHead>
                 <TableRow>
-                    <CustomTableCell align="center" className={classes.body}>매수량</CustomTableCell>
-                    <CustomTableCell align="center" className={classes.body}>가격</CustomTableCell>
                     <CustomTableCell align="center" className={classes.body}>매도량</CustomTableCell>
+                    <CustomTableCell align="center" className={classes.body}>가격</CustomTableCell>
+                    <CustomTableCell align="center" className={classes.body}>매수량</CustomTableCell>
                 </TableRow>
             </TableHead>
         <TableBody >

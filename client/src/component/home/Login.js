@@ -40,7 +40,6 @@ const Login = (props) => {
         <form className={classes.root} noValidate autoComplete="off"
           onSubmit={e => {
             e.preventDefault();
-            // TODO : 서버에 로그인 요청 후 처리하세요.
             return axios
               .post('http://localhost:4000/login', {
                 username: email,
