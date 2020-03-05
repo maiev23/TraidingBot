@@ -1,0 +1,10 @@
+.table{
+    border-collapse: collapse;
+}
+.scroll2{
+    overflow: auto;
+    height: 200px;
+}
+.table th{
+    border: 1px solid grey;
+}

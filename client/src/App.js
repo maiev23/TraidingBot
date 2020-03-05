@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import Login from '../src/component/Login';
-import Signup from '../src/component/Singup';
-import  Home  from '../src/component/Home';
+import Login from '../src/component/home/Login';
+import Signup from '../src/component/home/Singup';
+import  Home  from '../src/component/home/Home';
 
 class App extends React.Component {
   state = {
     isLogin: false,
     userinfo: {}
   };
+  
 
   handleIsLoginChange() {
     this.setState({ isLogin: true });
+  }
+  handleIsReverseLoginChange() {
+    this.setState({ isLogin: false });
   }
 
   render() {
@@ -37,7 +41,8 @@ class App extends React.Component {
           <Route
             exact
             path="/home"
-            render={() => <Home isLogin={isLogin} userinfo={userinfo} />}
+            render={() => <Home isLogin={isLogin} userinfo={userinfo} 
+            handleIsReverseLoginChange={this.handleIsReverseLoginChange.bind(this)} />}
           />
           <Route
             path="/"

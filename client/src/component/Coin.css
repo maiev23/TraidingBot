@@ -1,9 +1,0 @@
-.Coin{
-    border: 5px solid skyblue;
-    margin: auto;
-    padding: 5px;
-}
-.scroll{
-    overflow: auto;
-    height: 700px;
-}

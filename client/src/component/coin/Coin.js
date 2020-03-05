@@ -35,10 +35,8 @@ const Coin = (props) => {
         axios.get('https://api.upbit.com/v1/market/all')
             .then(data => {
                 //모드에 따라 필터
-                console.log('모드'+KB)
                 let filterData = data.data.filter((i) =>
                     i.market[0] === `${KB}` )
-                    console.log(filterData)
                 setDate(filterData);
                 if(search !== ''){
                 let searchData = filterData.filter((i) => 
@@ -64,7 +62,7 @@ const Coin = (props) => {
             </Tabs>
             <div className='scroll'>
             {data.map((i, index) => (
-                <Coins data={i} key={index} event={props.event} />
+                <Coins data={i} key={index} event={props.event} event2={props.event2}/>
             ))}
             </div>
         </div>

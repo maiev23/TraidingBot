@@ -1,0 +1,66 @@
+.dataC{
+    display: flex;
+    flex-direction: row; 
+    border: 1px solid rgba(3, 3, 3, 0.103);
+    padding: 25px;
+    background-color: white;
+    width:94%;
+    margin-left: 12px;
+    border-radius: 5px;
+}
+.price{
+    font-size: 32px;
+}
+.price em{
+    margin-right: 70px;
+    font-size: 0.5em;
+}
+.red{
+    color: red;
+}
+.blue{
+    color: skyblue;
+}
+.red em{
+    color: black;
+}
+.blue em{
+    color: black;
+}
+.highP em{
+    margin-right: 70px;
+}
+.highP strong{
+    color:red;
+    margin-right: 30px;
+}
+.lowP em{
+    margin-right: 70px;
+}
+.lowP strong{
+    color: skyblue;
+    margin-right: 30px;
+}
+.trS em{
+    margin-right: 70px;
+}
+.trP em{
+    margin-right: 55px;
+}
+.all{
+    padding-left: 50px;
+    padding-bottom: 10px;
+}
+.yesterP em{
+ margin-right: 5px;
+}
+.yesterP strong{
+    font-size: 20px;
+    margin-right: 5px;
+}
+#black{
+ color:black
+}
+.coinName{
+    margin-left: 19px;
+}
