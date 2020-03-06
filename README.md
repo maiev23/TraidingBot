@@ -8,12 +8,12 @@
 
 ### Install  
 
-1. `cd client npm install`
+1. `cd client npm install`  
 client폴더로 이동후 `npm install` 커멘드를 실행하십시오.
 
 ### start
 
-1. `npm start`
+1. `npm start`  
 `npm start` 커멘드를 입력하여 클라이언트를 실행하십시오.
 
 ### stack
@@ -24,11 +24,11 @@ client폴더로 이동후 `npm install` 커멘드를 실행하십시오.
 
 ### Progress
 
-1. Implementing login and membership registration functions
+1. Implementing login and membership registration functions  
 로그인 및 회원가입 기능 구현
-2. Implementing Coin Trading and Transaction Details functions
+2. Implementing Coin Trading and Transaction Details functions  
 코인매매 거래내역 기능 구현
-3. Automatic transaction function not implemented
+3. Automatic transaction function not implemented  
 자동거래 기능 미구현
 
 ### LICENSE
