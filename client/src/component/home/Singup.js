@@ -57,12 +57,7 @@ const Signup = (props) => {
                  alert('회원가입이 되었습니다.')
              })
              .catch(err => {
-                 console.log(err.message)
-                if(err.code=410){
-                 alert('올바른 키를 입력해주십시오')
-                }else{
                  setValue (true)
-                }
              });
             }}
           >
@@ -74,7 +69,7 @@ const Signup = (props) => {
             type="email"
             name="email"
             autoComplete="current-email"
-            helperText={value ? '이미 존재하는 아이디입니다.': `${str}`}
+            helperText={value ? '잘못된 키 또는 중복된 아이디입니다.': ''}
             variant="filled"
             onChange={onChange}
             />
