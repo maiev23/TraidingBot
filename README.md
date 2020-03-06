@@ -6,6 +6,11 @@
 
 ## Info
 
+### architecture
+ 
+![12](./img/12.png)  
+![1234](./img/1234.png)  
+
 ### Install  
 
 1. `cd client npm install`  
@@ -22,6 +27,18 @@ client폴더로 이동후 `npm install` 커멘드를 실행하십시오.
 2. react-router-dom
 2. MATERIAL-UI
 
+### member
+
+1. 조선근 풀스택
+2. 김정수 백엔드
+3. 서형규 백엔드
+4. 조형근 풀스택
+
+## example
+
+![ezgif.com-video-to-gif](./img/ezgif.com-video-to-gif.gif)  
+![123](./img/123.gif) 
+
 ### Progress
 
 1. Implementing login and membership registration functions  
@@ -32,6 +49,6 @@ client폴더로 이동후 `npm install` 커멘드를 실행하십시오.
 자동거래 기능 미구현
 
 ### LICENSE
-free software, and may be the distributed under the terms special in the [LICE](https://github.com/facebook/react/blob/master/LICENSE) file.
+free software, and may be the distributed under the terms special in the [LICENSE](https://github.com/facebook/react/blob/master/LICENSE) file.
 
 
